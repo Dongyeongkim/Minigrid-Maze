@@ -565,6 +565,12 @@ def register_minigrid_envs():
         entry_point="minigrid.envs:UnlockPickupEnv",
     )
 
+    # Maze
+    # ----------------------------------------
+
+    register(
+        id="MiniGrid-Maze-v0", entry_point="minigrid.envs:MazeEnv")
+
     # BabyAI - Language based levels - GoTo
     # ----------------------------------------
 
