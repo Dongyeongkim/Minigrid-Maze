@@ -569,7 +569,37 @@ def register_minigrid_envs():
     # ----------------------------------------
 
     register(
-        id="MiniGrid-Maze-v0", entry_point="minigrid.envs:MazeEnv")
+        id="MiniGrid-Maze-v0",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":0})
+
+    register(
+        id="MiniGrid-Maze-v1",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":1})
+
+    register(
+        id="MiniGrid-Maze-v2",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":2})
+
+    register(
+        id="MiniGrid-Maze-v3",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":3})
+
+    register(
+        id="MiniGrid-Maze-v4",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":4})
+
+    register(
+        id="MiniGrid-Maze-v5",
+        entry_point="minigrid.envs:MazeEnv",
+        kwargs={"seed":5})
+    
+
+    
 
     # BabyAI - Language based levels - GoTo
     # ----------------------------------------

@@ -61,12 +61,14 @@ class MazeEnv(MiniGridEnv):
 
     def __init__(
             self,
-            size=10,
+            size=30,
             agent_start_pos=(1,1),
             agent_start_dir=0,
             max_steps: int | None = None,
+            seed = None,
             **kwargs,
     ):
+        self.seed = seed
         self.agent_start_pos = agent_start_pos
         self.agent_start_dir = agent_start_dir
 
@@ -93,7 +95,7 @@ class MazeEnv(MiniGridEnv):
 
         # Generate the surrounding walls
         self.grid.wall_rect(0, 0, width, height)
-        maze = Maze_Generator(width-2, height-2)
+        maze = Maze_Generator(width-2, height-2, seed=self.seed)
         last_pos_x = 0
         last_pos_y = 0
         
@@ -129,7 +131,8 @@ class Maze_Generator:
     False = Wall
     """
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, seed=None):
+        random.seed(seed)
         self._width = width
         self._height = height
         self.grid = np.zeros((width, height), dtype=bool)
